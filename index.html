@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mittwochspazieren</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Logo & Header tweaks (fügt sich zur bestehenden styles.css) */
+    .brand{ display:flex; align-items:center; gap:.6rem; text-decoration:none; color:inherit; }
+    .logo-wrap{ width:48px; height:48px; display:inline-flex; align-items:center; justify-content:center; flex:0 0 48px; }
+    .logo-svg{ width:40px; height:40px; display:block; }
+    .site-title{ font-size:1.05rem; font-weight:700; color:#2B8A2B; margin-left:.15rem; white-space:nowrap; }
+    /* optional contrasting ring (uncomment class on .logo-wrap to enable) */
+    .logo-contrasting {
+      padding:6px;
+      background:rgba(255,255,255,0.85);
+      border-radius:50%;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    }
+    /* responsive: icon-only on small screens */
+    @media (max-width:520px){
+      .site-title{ display:none; }
+      .logo-wrap{ width:40px; height:40px; }
+      .logo-svg{ width:32px; height:32px; }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <!-- Inline SVG badge (mint circle with white eye) -->
+      <span class="logo-wrap logo-contrasting" aria-hidden="true">
+        <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mittwochspazieren Logo">
+          <!-- mint circular background -->
+          <circle cx="32" cy="32" r="28" fill="#95D6A9"/>
+          <!-- white eye symbol -->
+          <path fill="#FFFFFF" d="M10 32 C18 16, 46 16, 54 32 C46 48, 18 48, 10 32 Z"/>
+          <!-- small mint pupil accent -->
+          <circle cx="32" cy="32" r="7" fill="#95D6A9"/>
+        </svg>
+      </span>
+
+      <!-- short name -->
+      <span class="site-title">Mittwochspazieren</span>
+    </a>
+
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#about">Was uns bewegt</a>
+      <a href="#events">Veranstaltungen</a>
+      <a href="#membership">Mitgliedschaft</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container">
+        <h2>Willkommen bei den Mittwochsspazierern!</h2>
+        <p class="lead">Menschen für ein gemeinsames Ziel zusammenbringen.</p>
+        <p>
+          <a class="btn primary" href="#membership">Mitmachen</a>
+          <a class="btn" href="#events">Veranstaltungen</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="about" class="container section">
+      <h3>Was uns bewegt</h3>
+      <p>
+        Die Mittwochsspazierer sind neugierig, kritisch und offen für neue Perspektiven. Gemeinsam gehen wir los, kommen ins Gespräch, hinterfragen Gewohntes und schauen mit Staunen und Zuversicht in die Zukunft.
+      </p>
+      <ul class="highlights">
+        <li>Community-Aktivitäten</li>
+        <li>Workshops &amp; Schulungen</li>
+        <li>Freiwilligenarbeit</li>
+      </ul>
+    </section>
+
+    <section id="events" class="container section">
+      <h3>Veranstaltungen</h3>
+      <ul class="events-list">
+        <li>
+          <strong>Monatliches Treffen</strong>
+          <div class="muted">Jeden ersten Dienstag im Monat — 19:00</div>
+          <div>Ort: Gemeindezentrum</div>
+        </li>
+        <li>
+          <strong>Frühlings-Workshop</strong>
+          <div class="muted">Sa, 17. Mai — 09:00</div>
+          <div>Thema: Freiwilligenschulung</div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="membership" class="container section">
+      <h3>Mitgliedschaft</h3>
+      <p>
+        Werde Mitglied, um unsere Arbeit zu unterstützen und Zugang zu exklusiven Veranstaltungen zu erhalten. Jahresbeitrag: €XX.
+      </p>
+      <p>
+        <a class="btn primary" href="mailto:info@example.org?subject=Mitgliedschaft%20Anfrage">Kontakt um beizutreten</a>
+      </p>
+    </section>
+
+    <section id="contact" class="container section">
+      <h3>Kontakt</h3>
+      <p>Email: <a href="mailto:info@example.org">info@example.org</a></p>
+
+      <form id="contactForm" class="contact-form" onsubmit="submitForm(event)">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Nachricht
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <div>
+          <button class="btn primary" type="submit">Senden</button>
+        </div>
+        <p id="formStatus" class="muted small"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>&copy; <span id="year"></span> Mittwochspazieren — Alle Rechte vorbehalten.</small>
+    </div>
+  </footer>
+
+  <script>
+    // Small helper: prefer opening user's email client, fallback to a thank-you message
+    function submitForm(e) {
+      e.preventDefault();
+      const f = e.target;
+      const name = encodeURIComponent(f.name.value.trim());
+      const email = encodeURIComponent(f.email.value.trim());
+      const message = encodeURIComponent(f.message.value.trim());
+      const mailto = `mailto:info@example.org?subject=Kontakt%20von%20${name}&body=Von:%20${name}%20(%20${email}%20)%0D%0A%0D%0A${message}`;
+      // Try to open mailto
+      window.location.href = mailto;
+      const status = document.getElementById('formStatus');
+      status.textContent = 'Ihr E-Mail-Client sollte sich öffnen — falls nicht, kontaktieren Sie uns unter info@example.org';
+    }
+
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

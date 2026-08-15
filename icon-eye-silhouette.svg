@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Eye icon">
+  <defs>
+    <style>
+      .stroke { fill:none; stroke:#2B8A2B; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
+      .dot { fill:#2B8A2B; }
+    </style>
+  </defs>
+
+  <!-- outer eye outline -->
+  <path class="stroke" d="M4 32 C12 12, 52 12, 60 32 C52 52, 12 52, 4 32 Z"/>
+
+  <!-- inner ring -->
+  <path class="stroke" d="M18 32 C24 20, 40 20, 46 32 C40 44, 24 44, 18 32 Z"/>
+
+  <!-- stylized 'crowd' in pupil: simple cluster of dots -->
+  <g transform="translate(32,32)">
+    <circle class="dot" cx="0" cy="0" r="3.2"/>
+    <circle class="dot" cx="-5" cy="-2" r="1.4"/>
+    <circle class="dot" cx="4" cy="-1.8" r="1.6"/>
+    <circle class="dot" cx="-2" cy="3" r="1.2"/>
+    <circle class="dot" cx="3.6" cy="2.6" r="1.1"/>
+    <circle class="dot" cx="6.6" cy="0.6" r="0.9"/>
+    <circle class="dot" cx="-6.2" cy="1.2" r="0.95"/>
+  </g>
+</svg>
