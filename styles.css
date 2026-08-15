@@ -30,7 +30,7 @@ body{
 
 /* header */
 .site-header{
-  background:linear-gradient(90deg, rgba(31,123,237,0.85), rgba(28,97,210,0.85));
+  background:linear-gradient(90deg, rgba(62,112,118), rgba(199,116,20));
   color:white;
   position:sticky;
   top:0;
@@ -75,7 +75,7 @@ body{
 .site-title{
   font-size:1rem;
   font-weight:600;
-  color:#2B8A2B;
+  color:#F1F1F1;
   margin-left:.25rem;
 }
 
